@@ -32,12 +32,28 @@ const schema = defineSchema(
       role: v.optional(roleValidator), // role of the user. do not remove
     }).index("email", ["email"]), // index for the email. do not remove or modify
 
-    // add other tables here
+    // Essay analysis table
+    essays: defineTable({
+      userId: v.optional(v.id("users")),
+      title: v.optional(v.string()),
+      content: v.string(),
+      goal: v.string(), // authenticity, leadership, resilience, etc.
+      wordCount: v.number(),
+      sentenceCount: v.number(),
+      clarityScore: v.number(),
+      authenticityScore: v.number(),
+      impactScore: v.number(),
+      overallScore: v.number(),
+      suggestions: v.array(v.string()),
+      isPublic: v.optional(v.boolean()),
+    }).index("by_user", ["userId"]),
 
-    // tableName: defineTable({
-    //   ...
-    //   // table fields
-    // }).index("by_field", ["field"])
+    // Analytics for the landing page stats
+    analytics: defineTable({
+      totalEssaysAnalyzed: v.number(),
+      totalStudentsHelped: v.number(),
+      avgImprovementPercent: v.number(),
+    }),
   },
   {
     schemaValidation: false,
