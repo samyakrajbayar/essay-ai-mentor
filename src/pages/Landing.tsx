@@ -202,23 +202,6 @@ export default function Landing() {
           </Button>
         </motion.div>
       </section>
-
-      {/* Footer */}
-      <footer className="max-w-7xl mx-auto px-4 py-8">
-        <div className="neu-inset p-6 rounded-3xl text-center">
-          <p className="text-muted-foreground">
-            Powered by{" "}
-            <a
-              href="https://vly.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline font-semibold"
-            >
-              vly.ai
-            </a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
